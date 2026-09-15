@@ -65,9 +65,9 @@ export function I18nProvider({ children }: { children: React.ReactNode }) {
   }, [language]);
 
   const setLanguagePreference = useCallback(async (next: LanguagePreference) => {
+    await updateSettings({ language: next });
     setPreference(next);
     localStorage.setItem(LANGUAGE_CACHE_KEY, next);
-    await updateSettings({ language: next });
   }, []);
 
   const t = useCallback(

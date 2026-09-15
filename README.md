@@ -2,6 +2,8 @@
 
 [中文](#中文) | [English](#english)
 
+[打开网页版 / Open Web App](https://www.thinkmaketell.com/timeboxing/) · [macOS 下载 / Downloads](https://github.com/TMT-Lucaaas/timeboxing/releases)
+
 ## 中文
 
 Timeboxing 是一个本地优先的时间盒应用，用于把一天拆成可执行、可复盘的时间块。
@@ -16,6 +18,7 @@ Timeboxing 是一个本地优先的时间盒应用，用于把一天拆成可执
 - 设置：配置工作日时间、每日计划时长、专注保护和界面语言。
 - 本地数据：基于 IndexedDB 存储，支持 JSON 导出、导入和清空。
 - 桌面版：通过 Electron 打包为 macOS 应用。
+- 网页版：直接在浏览器使用同样的功能，无需安装或登录。
 
 ### 文档
 
@@ -23,11 +26,18 @@ Timeboxing 是一个本地优先的时间盒应用，用于把一天拆成可执
 - [中文用户手册](docs/USER_GUIDE.zh-CN.md)
 - [English User Guide](docs/USER_GUIDE.en.md)
 - [本地存储 / Local Storage](docs/LOCAL_STORAGE.md)
+- [网页部署 / Web Deployment](docs/WEB_DEPLOYMENT.md)
 - [发布说明 / Releasing](docs/RELEASING.md)
 - [贡献指南 / Contributing](CONTRIBUTING.md)
 - [更新记录 / Changelog](CHANGELOG.md)
 
 ### 快速开始
+
+直接使用：[https://www.thinkmaketell.com/timeboxing/](https://www.thinkmaketell.com/timeboxing/)。网页版沿用开源版的中英双语、计划、执行、复盘和 JSON 备份功能，建议使用桌面浏览器。
+
+数据保存在当前浏览器的 IndexedDB 中，关闭再打开仍可继续使用；不会自动同步到其他浏览器、设备或 macOS 应用。清理网站数据或结束无痕会话可能丢失记录，请通过设置页导出 JSON 备份。
+
+从源代码运行：
 
 推荐使用 Node.js 22.13 或更新版本。
 
@@ -53,6 +63,14 @@ npm run electron-dev
 ```bash
 npm run build-static
 ```
+
+部署在 `/timeboxing` 子路径时：
+
+```bash
+npm run build-web
+```
+
+将生成的 `out/` 内容部署到 HTTPS 站点的 `/timeboxing/` 路径。静态托管、预览、更新和回退步骤见 [网页部署说明](docs/WEB_DEPLOYMENT.md)。默认 `build-static` 仍为根路径构建，供 Electron 使用。
 
 构建 macOS 安装包：
 
@@ -133,6 +151,7 @@ This project is inspired by Marc Zao-Sanders' *Timeboxing: The Power of Doing On
 - Settings: configure workday hours, planning duration, focus shield, and interface language.
 - Local data: IndexedDB storage with JSON export, import, and reset.
 - Desktop: Electron packaging for macOS.
+- Web: the same features in your browser, with no installation or login.
 
 ### Documentation
 
@@ -140,11 +159,18 @@ This project is inspired by Marc Zao-Sanders' *Timeboxing: The Power of Doing On
 - [中文用户手册](docs/USER_GUIDE.zh-CN.md)
 - [English User Guide](docs/USER_GUIDE.en.md)
 - [Local Storage / 本地存储](docs/LOCAL_STORAGE.md)
+- [Web Deployment / 网页部署](docs/WEB_DEPLOYMENT.md)
 - [Releasing / 发布说明](docs/RELEASING.md)
 - [Contributing / 贡献指南](CONTRIBUTING.md)
 - [Changelog / 更新记录](CHANGELOG.md)
 
 ### Quick Start
+
+Open [the web app](https://www.thinkmaketell.com/timeboxing/). It includes the same bilingual Plan, Focus, Review, Settings, and JSON backup features as the open-source desktop app. A desktop browser is recommended.
+
+Data stays in IndexedDB in the current browser and survives reopening the app. It does not automatically sync with other browsers, devices, or the macOS app. Clearing site data or ending a private browsing session may remove records; export a JSON backup from Settings.
+
+To run from source:
 
 Node.js 22.13 or newer is recommended.
 
@@ -170,6 +196,14 @@ Build the static frontend:
 ```bash
 npm run build-static
 ```
+
+For hosting under `/timeboxing`:
+
+```bash
+npm run build-web
+```
+
+Serve the generated `out/` contents at `/timeboxing/` on an HTTPS site. See [Web Deployment](docs/WEB_DEPLOYMENT.md) for hosting, preview, updates, and rollback. The default `build-static` still builds for the root path used by Electron.
 
 Build the macOS installer:
 

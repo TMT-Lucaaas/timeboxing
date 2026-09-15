@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { useEffect, useState } from 'react';
 import { DateProvider, useDate } from './DateProvider';
 import { I18nProvider, useI18n } from './I18nProvider';
 
@@ -59,11 +60,12 @@ function SideNav() {
     <aside className="border-r bg-white/80 backdrop-blur-sm border-white/20 flex flex-col">
       <nav className="flex flex-col p-3 gap-1 flex-1">
         {links.map((l) => {
-          const active = pathname === l.href;
+          const active = pathname.replace(/\/$/, '') === l.href;
           return (
             <Link
               key={l.href}
               href={l.href}
+              aria-current={active ? 'page' : undefined}
               className={
                 'px-3 py-2 rounded-full text-base font-semibold transition-colors duration-200 ' +
                 (active ? 'bg-blue-500/20 text-blue-700 backdrop-blur-sm' : 'hover:bg-white/60 text-slate-700')
@@ -85,6 +87,11 @@ function SideNav() {
 }
 
 export default function AppLayout({ children }: { children: React.ReactNode }) {
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
+  // Dates, language, and IndexedDB belong to the browser, not the static build.
+  if (!mounted) return null;
+
   return (
     <I18nProvider>
       <DateProvider>

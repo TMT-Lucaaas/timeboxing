@@ -28,6 +28,7 @@
     "lint": "eslint",
     "export": "next build",
     "build-static": "next build",
+    "build-web": "TIMEBOXING_BASE_PATH=/timeboxing next build",
     "electron": "electron .",
     "electron-dev": "concurrently \"ELECTRON_DEV=true ELECTRON_HOST=127.0.0.1 PORT=17895 npm run dev\" \"wait-on http://127.0.0.1:17895 && electron .\"",
     "electron-build": "npm run build-static && ELECTRON_DEV=false ELECTRON_HOST=127.0.0.1 electron .",
