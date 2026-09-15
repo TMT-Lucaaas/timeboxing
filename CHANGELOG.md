@@ -4,6 +4,13 @@
 
 ## 中文
 
+### 2026-09-15 - 网页版部署
+
+- 增加 `/timeboxing` 子路径构建，提供 https://www.thinkmaketell.com/timeboxing/ 在线入口。
+- 复用开源版完整功能和浏览器 IndexedDB，保留 macOS 构建与原有下载。
+- 增加中英文网页部署、浏览器存储及 JSON 迁移说明，CI 同时检查桌面根路径与网页子路径构建。
+- 修复静态页面首次加载的日期/语言不一致、语言切换后立即刷新的保存时序和尾斜杠路由的导航选中状态。
+
 ### 1.0.1 - 2026-04-28
 
 - 添加应用内语言设置，支持跟随系统、中文和 English。
@@ -25,6 +32,13 @@
 - 添加 PostCSS 依赖覆盖以消除发布前 `npm audit` 漏洞。
 
 ## English
+
+### 2026-09-15 - Web Deployment
+
+- Added a `/timeboxing` subpath build and the hosted app at https://www.thinkmaketell.com/timeboxing/.
+- Reused the open-source features and browser IndexedDB while retaining macOS builds and existing downloads.
+- Added bilingual hosting, browser storage, and JSON transfer guidance; CI builds both the desktop root path and web subpath.
+- Fixed date/language hydration on static page startup, language persistence before immediate reload, and navigation highlighting for trailing-slash routes.
 
 ### 1.0.1 - 2026-04-28
 

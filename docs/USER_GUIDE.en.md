@@ -2,6 +2,16 @@
 
 This guide explains every page in the open-source Timeboxing app, what each page does, and how to use the main workflows.
 
+## Open The App
+
+Open [the web app](https://www.thinkmaketell.com/timeboxing/) in a desktop browser. No installation or login is required. The macOS app remains available from [GitHub Releases](https://github.com/TMT-Lucaaas/timeboxing/releases).
+
+Routes below are relative to the app root. Online, Home is `/timeboxing/`; the other pages are `/timeboxing/plan/`, `/timeboxing/focus/`, `/timeboxing/review/`, and `/timeboxing/settings/`. These URLs support bookmarks and direct reloads.
+
+The web app has the same features as the open-source desktop app. Records stay in the current browser and survive closing and reopening a normal window. Browsers, devices, and the macOS app do not sync automatically. To transfer records, export JSON in the source app's Settings and import it in the destination. Import replaces destination records, so back those up first.
+
+Use a normal browser window and export backups regularly. Clearing site data deletes local records; private browsing data is usually removed when the session ends. The web app needs a connection to load its pages and does not offer guaranteed offline startup. See [Local Storage](LOCAL_STORAGE.md).
+
 ## Core Concepts
 
 - Timebox: a task block with a start time, end time, and title.

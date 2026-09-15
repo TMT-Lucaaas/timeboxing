@@ -23,6 +23,10 @@ npm run build-static
 
 `npm run lint` 负责检查代码质量。`npm run build-static` 会生成 Next.js 静态产物。
 
+### 部署网页版
+
+网页版使用 `npm run build-web` 生成 `/timeboxing` 子路径静态站点，部署方式见 [网页部署](WEB_DEPLOYMENT.md)。更新网页不需要重新打包 macOS，既有 DMG 可继续下载。网页产物与桌面产物均写入 `out/`，不要并行构建；每次打包桌面版前使用 `npm run dist-mac` 重新生成根路径产物。
+
 ### 构建 macOS DMG
 
 ```bash
@@ -107,6 +111,10 @@ npm run build-static
 ```
 
 `npm run lint` checks code quality. `npm run build-static` creates the Next.js static output.
+
+### Deploy The Web App
+
+Use `npm run build-web` for the `/timeboxing` static site; see [Web Deployment](WEB_DEPLOYMENT.md). Web updates do not require new macOS packages, and existing DMGs remain available. Web and desktop builds both write to `out/`; do not build them concurrently. Run `npm run dist-mac` before packaging desktop to regenerate root-path assets.
 
 ### Build macOS DMG
 

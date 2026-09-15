@@ -23,6 +23,14 @@ persist:timeboxing-oss
 
 这可以让开源版和其他本地版本的数据相互隔离。
 
+### 网页版与迁移
+
+网页版地址为 [www.thinkmaketell.com/timeboxing/](https://www.thinkmaketell.com/timeboxing/)。服务器只提供页面、脚本和静态资源，时间盒、待办、日志、设置均在当前浏览器保存。常规窗口中刷新页面、关闭后再打开、服务器更新页面均不会主动删除这些数据。
+
+IndexedDB 按浏览器用户配置和站点来源（协议、域名、端口）隔离，不按 URL 路径隔离。同一浏览器访问同一 HTTPS 域名会继续使用原数据库；换域名、浏览器、设备或切换到 Electron 会使用独立数据。浏览器清理网站数据、存储回收或结束无痕会话可能删除记录。
+
+网页版和开源 macOS 版使用相同的 JSON 备份格式，可手动导出、导入来迁移。导入会替换目标数据，不是合并或自动同步。迁移前先在两端导出备份；不会自动读取个人版应用的数据。
+
 ### 数据表
 
 ```text
@@ -126,6 +134,14 @@ persist:timeboxing-oss
 ```
 
 This keeps the open-source version separate from other local builds.
+
+### Web App And Data Transfer
+
+The hosted app is at [www.thinkmaketell.com/timeboxing/](https://www.thinkmaketell.com/timeboxing/). The server serves pages, scripts, and assets. Timeboxes, backlog, logs, and settings stay in the current browser. Reloading, reopening a normal window, and updating hosted files do not actively delete these records.
+
+IndexedDB is isolated by browser profile and origin (scheme, hostname, and port), not URL path. The same HTTPS origin in the same browser keeps using the same database. Another domain, browser, device, or Electron uses separate storage. Clearing site data, browser storage eviction, or ending a private session may remove records.
+
+The web and open-source macOS apps share the same JSON backup format. Export and import to move data manually. Import replaces destination data; it is not merging or automatic sync. Back up both sides first. The web app does not automatically read personal-edition app data.
 
 ### Tables
 

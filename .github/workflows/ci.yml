@@ -31,3 +31,6 @@ jobs:
 
       - name: Build
         run: npm run build-static
+
+      - name: Build web subpath
+        run: npm run build-web

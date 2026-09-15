@@ -2,6 +2,16 @@
 
 本文档面向使用开源版 Timeboxing 的用户，说明每个页面的功能、使用方式和常见操作路径。
 
+## 打开应用
+
+网页版：[https://www.thinkmaketell.com/timeboxing/](https://www.thinkmaketell.com/timeboxing/)，使用桌面浏览器即可打开，无需安装或登录。macOS 版仍可从 [GitHub Releases](https://github.com/TMT-Lucaaas/timeboxing/releases) 下载。
+
+下文路径以应用根目录为基准。在线版本的首页是 `/timeboxing/`，计划、执行、复盘、设置分别是 `/timeboxing/plan/`、`/timeboxing/focus/`、`/timeboxing/review/`、`/timeboxing/settings/`，支持收藏和直接刷新。
+
+网页版功能与开源桌面版一致。数据只保存在当前浏览器；正常关闭页面后再打开仍可读取。不同浏览器、设备和 macOS 应用不会自动同步。需要迁移时，在原应用的设置页导出 JSON，再在目标应用导入；导入会替换目标中的现有记录，先备份目标数据。
+
+请在常规浏览窗口中使用并定期导出备份。清理网站数据会删除本地记录，无痕窗口的数据通常在结束会话后删除。网页版需要联网加载页面，不提供保证离线启动的安装模式。更多细节见 [本地存储](LOCAL_STORAGE.md)。
+
 ## 核心概念
 
 - 时间盒：一段有开始时间、结束时间和明确任务标题的时间块。
